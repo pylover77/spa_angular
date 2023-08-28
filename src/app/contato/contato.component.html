@@ -1,0 +1,31 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="bg-white p-8 shadow-md rounded-md w-96">
+        <h1 class="text-center text-2xl font-semibold mb-4">Entre em Contato</h1>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="mb-4">
+                <label for="name" class="block text-sm font-medium mb-1">Nome</label>
+                <input type="text" id="name" formControlName="name"
+                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500" />
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium mb-1">E-mail</label>
+                <input type="email" id="email" formControlName="email"
+                    class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500" />
+                <div *ngIf="contactForm.get('email')?.hasError('pattern')" class="text-red-600 text-sm mt-1">
+                    Email inválido.
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="message" class="block text-sm font-medium mb-1">Mensagem</label>
+                <textarea id="message" formControlName="message" rows="4"
+                    class="w-full px-3 py-2 border rounded-md resize-none focus:outline-none focus:border-blue-500"></textarea>
+            </div>
+            <div class="flex justify-center">
+
+
+                <button type="submit"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>
